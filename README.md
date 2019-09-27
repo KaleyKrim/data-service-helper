@@ -21,10 +21,10 @@ AWS_SECRET_ACCESS_KEY=
 ```ts
 import RDSDataApi from "<path to cloned repo>/build/";
 
-const rdsDataApi = new RDSDataApi("resourceArn", "secretArn");
+const dataServiceClient = new RDSDataServiceClient("resourceArn", "secretArn");
 
-const transactionId = await rdsDataApi.beginTransaction("testdb");
-const res = await rdsDataApi.executeStatement(`UPDATE kitters SET vibes = 'luxury' WHERE type = 'Siamese'`, { transactionId, database: "testdb" });
-const transactionStatus = await rdsDataApi.commitTransaction(transactionId);
+const transactionId = await dataServiceClient.beginTransaction("testdb");
+const res = await dataServiceClient.executeStatement(`UPDATE kitters SET vibes = 'luxury' WHERE type = 'Siamese'`, { transactionId, database: "testdb" });
+const transactionStatus = await dataServiceClient.commitTransaction(transactionId);
 ...
 ```

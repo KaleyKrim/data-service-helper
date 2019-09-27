@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-export default class RDSDataAPI {
+export default class RDSDataServiceClient {
     public RDSDataService: RDSDataService;
     public baseParams: { resourceArn: string; secretArn: string };
 
