@@ -4,7 +4,7 @@
   "description": "",
   "main": "build/index.js",
   "scripts": {
-    "test": "npm run build && npm run build:test && ava \"test/build/**/*Spec.js\"",
+    "test": "npm run build && npm run build:test && ava 'test/build/dataWrapper.js'",
     "build": "tsc",
     "build:test": "tsc -p test",
     "lint": "eslint src/*.ts"
@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/dotenv": "^6.1.1",
     "@types/node": "^12.7.8",
     "@typescript-eslint/eslint-plugin": "^2.3.1",
     "@typescript-eslint/parser": "^2.3.1",
@@ -20,6 +21,7 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
-    "aws-sdk": "^2.537.0"
+    "aws-sdk": "^2.537.0",
+    "dotenv": "^8.1.0"
   }
 }
