@@ -6,6 +6,7 @@ dotenv.config();
 export default class RDSDataAPI {
     public RDSDataService: RDSDataService;
     public baseParams: { resourceArn: string; secretArn: string };
+    
     constructor(resourceArn: string, secretArn: string, config?: { region?: string }) {
         this.RDSDataService = new RDSDataService({
             accessKeyId: process.env.AWS_ACCESS_KEY_ID,
