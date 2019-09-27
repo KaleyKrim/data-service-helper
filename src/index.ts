@@ -17,7 +17,7 @@ export class RDSDataAPI {
     }
 
     public async beginTransaction(database: string): Promise<string> {
-        return (await this.RDSDataService.beginTransaction({ ...this.baseParams, database: dbName }).promise()).transactionId;
+        return (await this.RDSDataService.beginTransaction({ ...this.baseParams, database }).promise()).transactionId;
     }
 
     public async commitTransaction(transactionId: string): Promise<RDSDataService.TransactionStatus> {
