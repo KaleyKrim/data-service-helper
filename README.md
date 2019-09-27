@@ -28,4 +28,3 @@ const res = await rdsDataApi.executeStatement(`UPDATE kitters SET vibes = 'luxur
 const transactionStatus = await rdsDataApi.commitTransaction(transactionId);
 ...
 ```
-
