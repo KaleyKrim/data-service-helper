@@ -7,7 +7,7 @@ export default class RDSDataServiceClient {
     public RDSDataService: RDSDataService;
     public baseParams: { resourceArn: string; secretArn: string };
 
-    constructor(resourceArn: string, secretArn: string, config?: { region?: string }) {
+    constructor(resourceArn: string, secretArn: string, config?: { region?: string; }) {
         this.RDSDataService = new RDSDataService({
             accessKeyId: process.env.AWS_ACCESS_KEY_ID,
             secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
