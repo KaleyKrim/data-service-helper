@@ -1,8 +1,8 @@
 ## AWS RDS Data Service Wrapper
 
-A simple wrapper for the AWS javascript SDK's AWS.RDSDataService for experimentation/testing convenience.
+A simple wrapper for AWS javascript SDK RDSDataService for aurora serverless experimentation/testing convenience.
 
-Does not include batchExecuteStatement method or parameters.
+Defaults to latest API version. Does not include batchExecuteStatement method or parameters.
 
 ## Usage
 
