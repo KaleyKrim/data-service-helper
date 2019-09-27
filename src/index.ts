@@ -10,7 +10,7 @@ export class RDSDataAPI {
             region,
             apiVersion: "latest",
         });
-        this.baseParams =  {
+        this.baseParams = {
             resourceArn,
             secretArn,
         };
