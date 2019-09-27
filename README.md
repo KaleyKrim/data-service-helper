@@ -6,7 +6,7 @@ Defaults to latest API version. Does not include batchExecuteStatement method or
 
 ## Usage
 
-1. Create `.env` file in project root you wish to import to with the following variables:
+1. Create `.env` file in your project root with the following variables:
 
 ```
 RDS_REGION=
