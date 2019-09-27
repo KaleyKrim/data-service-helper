@@ -6,7 +6,7 @@ dotenv.config();
 export default class RDSDataAPI {
     public RDSDataService: RDSDataService;
     public baseParams: { resourceArn: string; secretArn: string };
-    
+
     constructor(resourceArn: string, secretArn: string, config?: { region?: string }) {
         this.RDSDataService = new RDSDataService({
             accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -14,10 +14,7 @@ export default class RDSDataAPI {
             region: config && config.region ? config.region : process.env.RDS_REGION,
             apiVersion: "latest",
         });
-        this.baseParams = {
-            resourceArn,
-            secretArn,
-        };
+        this.baseParams = { resourceArn, secretArn };
     }
 
     public async beginTransaction(database: string): Promise<string> {
