@@ -1,27 +1,28 @@
 ## AWS RDS Data Service Wrapper
 
-A simple wrapper for AWS javascript SDK RDSDataService for aurora serverless experimentation/testing convenience.
+A simple wrapper for AWS javascript SDK RDSDataService. For Aurora serverless experimentation/testing convenience.
 
 Defaults to latest API version. Does not include batchExecuteStatement method or parameters.
 
 ## Usage
 
-1. Create `.env` file in your project root with the following variables (note: region will be overridden by constructor value, if provided):
+1. If no `.env` file is provided in project root, RDS Region, Resource ARN and Secret ARN can be supplied as constructor arguments. (Note: Regardless, constructor arguments will always override environment variables, if supplied.)
 
+Sample `.env`:
 ```
 RDS_REGION=
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
+RESOURCE_ARN=
+SECRET_ARN=
 ```
 
 2. Clone project & `npm run build`
 
-3. Import into project & instantiate with resourceArn & secretArn.
+3. Import into project. Instantiate with or without config (region, resourceArn & secretArn.)
 
 ```ts
 import RDSDataApi from "<path to cloned repo>/build/";
 
-const dataServiceClient = new RDSDataServiceClient("resourceArn", "secretArn");
+const dataServiceClient = new RDSDataServiceClient(config: { region: "www", resourceArn: "www", secretArn: "www" });
 
 const transactionId = await dataServiceClient.beginTransaction("testdb");
 const res = await dataServiceClient.executeStatement(`UPDATE kitters SET vibes = 'luxury' WHERE type = 'Siamese'`, { transactionId, database: "testdb" });
