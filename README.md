@@ -15,9 +15,7 @@ RESOURCE_ARN=
 SECRET_ARN=
 ```
 
-2. Clone project & `npm run build`
-
-3. Import into project. Instantiate with or without config (region, resourceArn & secretArn.)
+2. Clone project, `npm run build` & import. Instantiate with or without config (region, resourceArn & secretArn.)
 
 ```ts
 import RDSDataApi from "<path to cloned repo>/build/";
