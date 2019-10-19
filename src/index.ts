@@ -7,14 +7,15 @@ export default class RDSDataServiceClient {
     public RDSDataService: RDSDataService;
     public baseParams: { resourceArn: string; secretArn: string };
 
-    constructor(resourceArn: string, secretArn: string, config?: { region?: string; }) {
+    constructor(config?: { resourceArn?: string; secretArn?: string; region?: string; }) {
         this.RDSDataService = new RDSDataService({
-            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
             region: config && config.region ? config.region : process.env.RDS_REGION,
             apiVersion: "latest",
         });
-        this.baseParams = { resourceArn, secretArn };
+        this.baseParams = { 
+            resourceArn: config && config.resourceArn ? config.resourceArn : process.env.RESOURCE_ARN, 
+            secretArn: config && config.secretArn ? config.secretArn : process.env.SECRET_ARN 
+        };
     }
 
     public async beginTransaction(database: string): Promise<string> {
